@@ -1,7 +1,9 @@
 
 # Register your models here.
+from django.db import models
 from django.contrib import admin
 from .models import Category, Post
+from tinymce.widgets import TinyMCE
 
 
 @admin.register(Category)
@@ -17,3 +19,6 @@ class PostAdmin(admin.ModelAdmin):
     search_fields = ("title", "content")
     prepopulated_fields = {"slug": ("title",)}
     readonly_fields = ("created_at", "updated_at")
+    formfield_overrides = {
+    models.TextField: {"widget": TinyMCE()},
+}
