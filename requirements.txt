@@ -4,6 +4,7 @@ dj-database-url==3.1.2
 Django==5.2.8
 django-cors-headers==4.9.0
 django-filter==25.2
+django-tinymce==5.0.0
 djangorestframework==3.16.1
 djangorestframework_simplejwt==5.5.1
 drf-spectacular==0.29.0
@@ -12,6 +13,7 @@ inflection==0.5.1
 jsonschema==4.25.1
 jsonschema-specifications==2025.9.1
 mysql-connector-python==9.5.0
+mysqlclient==2.2.7
 packaging==25.0
 pillow==12.0.0
 psycopg2-binary==2.9.11
