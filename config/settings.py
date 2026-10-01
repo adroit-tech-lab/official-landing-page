@@ -35,6 +35,11 @@ ALLOWED_HOSTS = [
     "localhost",
 ]
 
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+]
+
 CSRF_TRUSTED_ORIGINS = [
     "https://api.yusufbusoyriy.com.ng",
 ]
@@ -51,6 +56,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'blog',
     'tinymce',
+    'corsheaders',
 ]
 
 TINYMCE_DEFAULT_CONFIG = {
@@ -63,6 +69,8 @@ TINYMCE_DEFAULT_CONFIG = {
         "link table | removeformat code preview fullscreen"
     ),
     "relative_urls": False,
+    "convert_urls": False,
+    "remove_script_host": False,
     "style_formats": [
         {
             "title": "Button link",
@@ -78,6 +86,7 @@ TINYMCE_DEFAULT_CONFIG = {
 }
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
