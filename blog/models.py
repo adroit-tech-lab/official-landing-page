@@ -2,6 +2,7 @@
 # Create your models here.
 from django.conf import settings
 from django.db import models
+from tinymce.models import HTMLField
 
 
 class Category(models.Model):
@@ -24,7 +25,19 @@ class Post(models.Model):
     title = models.CharField(max_length=250)
     slug = models.SlugField(max_length=250, unique=True)
     excerpt = models.TextField(blank=True)
-    content = models.TextField()
+
+    content = HTMLField()
+
+    image = models.ImageField(
+    upload_to="posts/%Y/%m/",
+    blank=True,
+    )
+
+    image_alt = models.CharField(
+        max_length=200,
+        blank=True,
+    )
+
     author = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.PROTECT,
