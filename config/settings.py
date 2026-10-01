@@ -50,7 +50,32 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'blog',
+    'tinymce',
 ]
+
+TINYMCE_DEFAULT_CONFIG = {
+    "height": 500,
+    "menubar": "edit view insert format tools table",
+    "plugins": "link lists table code preview fullscreen",
+    "toolbar": (
+        "undo redo | blocks | bold italic underline | "
+        "alignleft aligncenter alignright | bullist numlist | "
+        "link table | removeformat code preview fullscreen"
+    ),
+    "relative_urls": False,
+    "style_formats": [
+        {
+            "title": "Button link",
+            "selector": "a",
+            "classes": "blog-button",
+        },
+    ],
+    "content_style": (
+        ".blog-button { display:inline-block; padding:12px 20px; "
+        "background:#2563eb; color:#fff; border-radius:8px; "
+        "text-decoration:none; }"
+    ),
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -143,6 +168,10 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
+
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"
 
 
 # Static files (CSS, JavaScript, Images)
